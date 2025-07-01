@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;900&display=swap');
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Custom Properties */
+
+:root {
+  /*Font family defualts*/
+  --ff-primary: "Montserrat", sans-serif;
+  --ff-secondary: 'Assistant', sans-serif;
+
+  /*Font weight defaults*/
+  --fw-light: 300;
+  --fw-reg: 400;
+  --fw-bold: 600;
+
+  /*Colors default*/
+  /* Inverted colors */
+  /* 
+  #f1f1f1
+  #25242a
+  */
+    /* COLORS*/
+    /*PRIMARY*/
+  --clr-accent: #CB3939;
+  --clr-accent2: #093394;
+  /* --clr-accent: #36e961;
+  --clr-accent2: #11506e; */
+  --clr-body: #35312A;
+  --clr-headings: #060506;
+  
+  /*SECONDARY*/
+  --clr-headings2: #fff;
+  --clr-body2: #f5f5f5;
+
+  /*Font Size*/
+  /*Headings & body*/
+  --fs-title: 7rem;
+  --fs-h1: 3.6rem;
+  --fs-h2: 2.4rem;
+  --fs-h3: 2rem;
+  --fs-body: 1.75rem;
+  --fs-btn: 1.5rem;
+
+  --spacing-mb: 4.8rem;
+  --max-width: 80%;
+
+  /*Box shadow*/
+  --bs-1: 0px 4px 16px rgba(0, 0, 0, 0.2);
+  --bs-2: 0px 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* General */
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: var(--fs-body);
+  font-family: var(--ff-primary);
+}
+
+.container__body {
+    /* 1140px */
+    background-color: var(--clr-back);
+    /* background-color: #000000f3; */
+    color: var(--clr-body);
+    /* max-width: 150rem; */
+    max-width: 130rem;
+    /* max-width: 100%; */
+    /* padding: 0 3.2rem; */
+    margin: 0 auto;
+    line-height: 150%;
+  
+}
