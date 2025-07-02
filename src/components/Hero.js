@@ -1,21 +1,17 @@
 import React from 'react';
 
 const Hero = () => {
-  const handleButtonClick = () => {
-    window.location.href = 'mailto:michaeladeleye365@gmail.com';
-  };
-
   return (
     <section className="section__hero" id='hero'>
       <div className="hero-container">
-        <HeroText onButtonClick={handleButtonClick} />
+        <HeroText />
         <HeroImage />
       </div>
     </section>
   );
 };
 
-const HeroText = ({ onButtonClick }) => {
+const HeroText = () => {
   return (
     <div className="hero__text">
       <h2 className="heading hero_head">
@@ -24,7 +20,9 @@ const HeroText = ({ onButtonClick }) => {
       <p className="hero__p">
         A lifelong learner in the ever-evolving tech landscape, I thrive on transforming ideas into functional reality using modern tools like React and Python while leveraging cutting-edge practices.
       </p>
-      <button className="btn hero__btn"  onClick={onButtonClick}>Contact me</button>
+      <div className="hero__btn hero__btn-link">
+        <a href="mailto:michaeladeleye365@gmail.com">Contact me</a>
+      </div>
     </div>
   );
 };
