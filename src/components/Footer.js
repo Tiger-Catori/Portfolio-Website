@@ -32,7 +32,7 @@ const FooterLogo = () => {
 const FooterLinks = () => {
   return (
     <div className="footer-col col-one">
-      <h4>SiteMap</h4>
+      <h4>Sitemap</h4>
       <ul className="footer-links site-map">
         <li><a href="#">Home</a></li>
         <li><a href="#hero">About me</a></li>
@@ -87,8 +87,8 @@ const FooterBottom = () => {
     <div className="footer__bottom">
       <p>&copy; <span id="current-year"></span> Michael Adeleye. All rights reserved.</p>
       {/* <p><a href="https://webmagnetism.com/">Powered by WebMagnetism.com</a></p> */}
-      <p><a href="terms&conditions.html">Terms & Conditions</a></p>
-      <p><a href="privacy.html">Privacy Policy</a></p>
+      <p><a href="#">Terms & Conditions</a></p>
+      <p><a href="#">Privacy Policy</a></p>
     </div>
   );
 };

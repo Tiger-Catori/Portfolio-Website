@@ -35,6 +35,7 @@ const Projects = () => {
             href="https://github.com/Tiger-Catori"
             className="portfolio__item"
             aria-label={`View project ${item.id} on GitHub`}
+            target="_blank" rel="noreferrer"
           >
             <img 
               src={`/images/work/${item.img}`} 

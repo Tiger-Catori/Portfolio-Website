@@ -19,7 +19,7 @@ const HeroText = ({ onButtonClick }) => {
   return (
     <div className="hero__text">
       <h2 className="heading hero_head">
-        This is <span>Michael Adeleye's</span> Website
+        Welcome to <span>Michael Adeleye's</span> Website
       </h2>
       <p className="hero__p">
         A lifelong learner in the ever-evolving tech landscape, I thrive on transforming ideas into functional reality using modern tools like React and Python while leveraging cutting-edge practices.
