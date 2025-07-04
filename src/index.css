@@ -166,62 +166,134 @@ ul a {
   /* width: 40%; */
 }
 
+/* .navbar-toggler {
+  flex-grow: 1;
+} */
 
 /* Navbar styling */
 .navbar {
   background-color: var(--clr-headings);
   z-index: 1000;
-  opacity: 0.87;
+  opacity: 0.82;
   font-family: var(--ff-primary);
 }
 
 .navbar .logo-img {
-  max-width: 85px;
+  max-width: 8.5rem;
   width: 100%;
   height: auto;
   border-radius: 4px;
 }
 
-.navbar-nav .nav-link {
+/* This is where we use flex to align items */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  /* Vertically center items */
+  position: relative;
+  row-gap: 0;
+}
+
+/* Styling the Navbar Toggle */
+/* Mobile menu: Navbar collapse */
+/* Mobile specific styles for navbar */
+.navbar-toggler {
+  justify-content: center;
+  flex-grow: 1;
+  /* flex-grow: 0; */
+  min-width: 13%;
+  max-width: 15%;
+  border: none;
+  border-radius: 0;
+  
+}
+
+/* Ensure the toggle icon is visible */
+.navbar-toggler-icon {
+  background-color: none; /* White toggle icon */ 
+  color: #fff;
+  padding: 2rem;
+}
+
+.navbar__nav .nav-link {
   font-weight: var(--fw-reg);
   font-size: var(--fs-h3);
-  /* margin-right: 2rem; */
   transition: all 0.05s ease-in-out;
 }
 
+/* Ensuring that navbar has proper spacing between items */
 .nav__buttons {
-  margin: 0 auto;
-  align-items: center;
-  column-gap: 10rem;
+  display: flex;
+  width: 70%; /* Full width for space between items */
+  justify-content: space-around; /* Ensures spacing between child elements */
+  align-items: center; /* Vertically align the items */
 }
 
+/* Ensure the nav__links container has enough space to stretch */
 .nav__links {
-  column-gap: 4rem;
+  display: flex;
+  column-gap: 4rem;  /* Space between individual nav items */
+  align-items: center; /* Vertically center the items */
 }
 
 .nav__links a {
   color: var(--clr-body2);
+  font-size: var(--fs-h3);
 }
 
 .nav__links a:hover {
   color: var(--clr-accent);
   text-decoration: underline;
 }
+.navbar-toggler {
+  border: 3px solid #fff;
+  background-color: var(--clr-body2);
+  z-index: 1050; /* Ensure it's on top of other navbar items */
+  margin: 2rem auto;
+}
 
 
 /* Media query for smaller screens */
+
 @media (max-width: 991px) {
-  .navbar-nav {
+  .navbar-toggler {
+    width: 50%; /* Adjust the width of the navbar toggle */
+    /* display: none; */
+  }
+
+  /* Ensure nav__buttons is aligned to the left on smaller screens */
+  .nav__buttons {
+    justify-content: flex-start; /* Align to the left when collapsed */
+    width: 100%; /* Full width for mobile */
+  }
+
+  /* Ensure navbar links are vertically aligned on mobile */
+  .nav__links {
     flex-direction: column;
     text-align: center;
     margin-top: 1rem;
   }
-  .navbar-nav .nav-link {
+
+  /* Spacing between nav links */
+  .nav__links .nav-link {
     margin: 0.5rem 0;
+  }
+
+  /* Contact button margin on mobile */
+  .btn-contact {
+    margin-top: 1rem;
+  }
+
+  /* Contact button alignment */
+  .btn-contact {
+    width: 100%; /* Ensure button is stretched on mobile */
   }
 }
 
+
+
 /* Contact Button Navbar */
+/* Contact button styling */
 .btn-contact {
   background-color: var(--clr-accent);
   color: var(--clr-headings2);
@@ -229,12 +301,10 @@ ul a {
   font-size: var(--fs-body);
   font-family: var(--ff-primary);
   font-weight: var(--fw-semibold);
-  filter: brightness(0.96);
   text-transform: uppercase;
   background: #3b82f6;
   color: white;
   padding: 0.5rem 1rem;
-  border: none;
   border-radius: 0;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -244,9 +314,10 @@ ul a {
   text-decoration: none;
 }
 
+/* Contact button hover effect */
 .btn-contact:hover {
   filter: brightness(1.15);
-  background: var(--clr-hover2); /* If you want to change the hover color */
+  background: var(--clr-hover2);
   box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
 }
 
@@ -772,4 +843,6 @@ ul a {
     left: -3rem;
   }
 }
+
+
 

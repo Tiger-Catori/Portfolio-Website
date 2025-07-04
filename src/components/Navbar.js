@@ -5,13 +5,20 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 const NavbarComponent = () => {
   return (
     <Navbar expand="lg" sticky="top" className="navbar navbar-dark">
-      <Container>
-        {/* <Logo /> */}
+      <Container className='navbar-container'>
+        {/* Logo */}
         {/* Navbar toggle for mobile */}
-        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Toggle 
+          aria-controls="main-nav" 
+          className="navbar-toggler" 
+          data-bs-toggle="collapse"
+          data-bs-target="#main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        />
         
         {/* Navbar links and contact button */}
-        <Navbar.Collapse id="navbar-nav">
+        <Navbar.Collapse id="main-nav" className="collapse navbar-collapse justify-content-end align-center">
           <Nav className="ml-auto nav__buttons">
             <NavLinks />
             <ContactButton />
@@ -25,7 +32,7 @@ const NavbarComponent = () => {
 // Logo component
 const Logo = () => {
   return (
-    <Navbar.Brand href="#">
+    <Navbar.Brand href="#home">
       <img src="/images/logo/logo.png" alt="Logo" className="logo-img" />
     </Navbar.Brand>
   );
@@ -34,10 +41,11 @@ const Logo = () => {
 // Navigation links component
 const NavLinks = () => {
   return (
-    <Nav className="mr-auto nav__links">
-      <Nav.Link href="#">Home</Nav.Link>
-      <Nav.Link href="#hero">About Me</Nav.Link>
-      <Nav.Link href="#projects">My Work</Nav.Link>
+    <Nav className="nav__links">
+      <Nav.Link href="#"><span>Home</span></Nav.Link>
+      <Nav.Link href="#about"><span>About</span></Nav.Link>
+      <Nav.Link href="#projects"><span>Projects</span></Nav.Link>
+      {/* <Nav.Link href="#contact"><span>Contact</span></Nav.Link> */}
     </Nav>
   );
 };

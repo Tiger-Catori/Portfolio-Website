@@ -1,5 +1,6 @@
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import Navbar from './Navbar';
 import Hero from "./Hero";
 import Footer from "./Footer";
