@@ -1,42 +1,54 @@
 import React from 'react';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 
-const Navbar = () => {
+// Main Navbar component
+const NavbarComponent = () => {
   return (
-    <nav className="navbar">
-      <NavbarBox/>
-    </nav>
+    <Navbar expand="lg" sticky="top" className="navbar navbar-dark">
+      <Container>
+        {/* <Logo /> */}
+        {/* Navbar toggle for mobile */}
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        
+        {/* Navbar links and contact button */}
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="ml-auto nav__buttons">
+            <NavLinks />
+            <ContactButton />
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-const NavbarBox = () => {
-  return (
-    <div className="navbar__box">
-      <NavLinks/>
-      <div className="btn btn-link nav__btn">
-        <a href="mailto:michaeladeleye365@gmail.com">Contact me</a>
-      </div>
-    </div>
-  )
-};
-
+// Logo component
 const Logo = () => {
   return (
-    <div className="logo">
-      <a href="#">
-        <img src="/images/logo/logo.png" alt="" />
-      </a>
-    </div>
-  )
+    <Navbar.Brand href="#">
+      <img src="/images/logo/logo.png" alt="Logo" className="logo-img" />
+    </Navbar.Brand>
+  );
 };
 
+// Navigation links component
 const NavLinks = () => {
   return (
-    <ul className="nav-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#hero">About me</a></li>
-      <li><a href="#projects">My Work</a></li>
-    </ul>
-  )
+    <Nav className="mr-auto nav__links">
+      <Nav.Link href="#">Home</Nav.Link>
+      <Nav.Link href="#hero">About Me</Nav.Link>
+      <Nav.Link href="#projects">My Work</Nav.Link>
+    </Nav>
+  );
 };
 
-export default Navbar;
+// Contact button component
+const ContactButton = () => {
+  return (
+    <div className="btn-contact">
+      <a href="mailto:michaeladeleye365@gmail.com">Contact me</a>
+    </div>
+  );
+};
+
+export default NavbarComponent;
