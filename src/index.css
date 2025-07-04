@@ -231,7 +231,7 @@ ul a {
   background-color: var(--clr-accent);
   color: var(--clr-headings2);
   border: none;
-  font-size: var(--fs-h3);
+  font-size: var(--fs-body);
   font-family: var(--ff-primary);
   font-weight: var(--fw-semibold);
   filter: brightness(0.96);
