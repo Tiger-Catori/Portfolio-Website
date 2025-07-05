@@ -43,7 +43,7 @@ const NavLinks = () => {
   return (
     <Nav className="nav__links">
       <Nav.Link href="#"><span>Home</span></Nav.Link>
-      <Nav.Link href="#about"><span>About</span></Nav.Link>
+      <Nav.Link href="#hero"><span>About</span></Nav.Link>
       <Nav.Link href="#projects"><span>Projects</span></Nav.Link>
       {/* <Nav.Link href="#contact"><span>Contact</span></Nav.Link> */}
     </Nav>
