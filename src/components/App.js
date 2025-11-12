@@ -1,29 +1,36 @@
 import { useState } from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'
-import Navbar from './Navbar';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Footer from "./Footer";
+import Banner from "./Banner";
 import Projects from "./Projects";
 // import About from "./About";
 
 function App() {
   return (
     <body>
-      <Navbar/>
+      <Navbar />
       <Hero />
       <div className="container__body">
         {/* <Navbar /> This means the width is not 100% of viewport */}
-        
+
         {/* <Hero /> */}
         {/* Other components or content */}
         {/* <Projects/> */}
-      
       </div>
-      <Projects/>
-      <Footer/>
-      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <Banner />
+      <Projects />
+      <Footer />
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
     </body>
   );
 }
