@@ -1,0 +1,80 @@
+/* Button and Navbar styles */
+
+/* General Button styles */
+.btn,
+.btn-link {
+    background-color: var(--clr-accent);
+    color: var(--clr-headings2);
+    border: none;
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    filter: brightness(0.96);
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover,
+.btn-link:hover {
+    filter: brightness(1.15);
+}
+
+/* Hero Section Button */
+.hero__btn,
+.hero__btn-link {
+    background: var(--clr-hover);
+    color: white;
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-semibold);
+    padding: 0.8rem 1.6rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.hero__btn:hover,
+.hero__btn-link:hover {
+    filter: brightness(1.15);
+    background: var(--clr-accent);
+    box-shadow: 0 6px 20px rgba(80, 102, 139, 0.4);
+}
+
+/* Contact Button */
+.btn-contact {
+    background-color: var(--clr-accent);
+    color: var(--clr-headings2);
+    border: none;
+    font-size: var(--fs-body);
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-contact:hover {
+    filter: brightness(1.15);
+    background: var(--clr-hover2);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-contact a,
+.hero__btn-link a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: var(--fw-semibold);
+}

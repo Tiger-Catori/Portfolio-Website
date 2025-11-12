@@ -1,4 +1,6 @@
 import React from "react";
+import "../css/hero.css";
+import "../css/button.css";
 
 const Hero = () => {
   return (

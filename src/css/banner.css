@@ -1,0 +1,49 @@
+/* Section and Banner styling */
+.section__banner {
+    padding: 4.8rem 0 3.2rem 0;
+    background-color: #ffcc9f;
+    /*background-color: var(--clr-accent);*/
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.8;
+    width: 100%;
+}
+
+/* Banner container and items */
+.banner__container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /*flex-wrap: wrap;*/
+    justify-content: center;
+}
+
+.banner__items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 130rem;
+    padding: 0 20px;
+}
+
+/* Banner image styling */
+.banner__img {
+    filter: grayscale(100%); /* Ensure this filter is applied */
+    height: 9rem;
+    width: auto;
+    max-height: 7rem; /* Ensure images don't get stretched */
+    transition: filter 0.3s ease; /* Add transition for smooth hover effect */
+    opacity: 1;
+    margin: 2rem;
+}
+
+.banner__img:hover {
+    filter: grayscale(0%); /* Removes greyscale effect on hover */
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import "../css/navbar.css";
+import "../css/button.css";
 
 // Main Navbar component
 const NavbarComponent = () => {

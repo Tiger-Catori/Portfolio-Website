@@ -1,0 +1,94 @@
+/* My Projects */
+.my-projects {
+    font-family: var(--ff-primary);
+    background-color: var(--clr-accent);
+    color: var(--clr-body2);
+    text-align: center;
+    opacity: 0.87;
+    padding: 5% 0; /* More responsive padding */
+}
+
+.section__title--project {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-bold);
+    margin-top: 0;
+}
+
+.section__subtitle--project {
+    font-size: calc(1rem + 0.6vw);
+    font-weight: var(--fw-reg);
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Updated portfolio container */
+.portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center all items */
+    gap: 2rem;
+    margin-top: 2rem;
+    max-width: 130rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio__item {
+    /* background-color: var(--clr-body2); */
+    background-color: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: none;
+    aspect-ratio: 4/3;
+    flex: 0 0 calc(33.333% - 2rem); /* 3 columns with gap */
+    max-width: 50rem; /* Max width for larger screens */
+}
+
+.portfolio__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 600ms cubic-bezier(0.5, 0, 0.5, 1),
+        opacity 250ms linear;
+    display: block;
+}
+
+/* Apply hover effect */
+.portfolio__item:hover .portfolio__img,
+.portfolio__item:focus .portfolio__img {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+/* Focus state */
+.portfolio__item:focus {
+    outline: 2px solid var(--clr-light);
+    outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1300px) {
+    .portfolio__item {
+        flex: 0 0 calc(50% - 2rem); /* 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio__item {
+        flex: 0 0 100%; /* Single column on mobile */
+        max-width: 500px;
+    }
+
+    .my-projects {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Focus state for accessibility */
+.portfolio__item:focus {
+    outline: 2px solid var(--clr-light);
+    outline-offset: 2px;
+}
