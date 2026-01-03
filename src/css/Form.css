@@ -1,0 +1,252 @@
+/* =========================================================
+   LAYOUT CONTAINERS
+   ========================================================= */
+.form__container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: stretch; /* ← KEY: makes children same height */
+    gap: 6.4rem;
+    max-width: 130rem;
+    width: 100%;
+    margin: 4rem auto;
+}
+
+/* 50/50 split */
+.form__container > * {
+    flex: 1 1 50%;
+    max-width: 50%;
+}
+
+/* Image container — now matches form height & crops */
+.container__image {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 16px; /* match form border-radius */
+    overflow: hidden; /* ← essential for object-fit to crop cleanly */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.container__image img {
+    width: 100%;
+    height: 100%; /* ← fill container height */
+    object-fit: cover; /* ← zoom and crop */
+    object-position: center; /* ← focus on center */
+    display: block;
+}
+
+/* =========================================================
+   FORM SECTION WRAPPER
+   ========================================================= */
+.form__section {
+    width: 100%;
+    padding: 3.2rem 4.8rem;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Rest of your styles remain unchanged... */
+/* =========================================================
+   FORM BASE STYLES
+   ========================================================= */
+.web__form {
+    width: 100%;
+}
+.web__form h1 {
+    text-align: center;
+    font-size: calc(1.6rem + 0.4vw);
+    font-weight: var(--fw-bold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.web__form p {
+    text-align: center;
+    margin-bottom: 1.6rem;
+    font-size: calc(1.3rem + 0.4vw);
+    color: #111;
+}
+
+.input__box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* =========================================================
+   INPUTS & TEXTAREAS
+   ========================================================= */
+.input,
+.textarea {
+    padding: 1.2rem 1.6rem;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: calc(1rem + 0.4vw);
+    background-color: #fff;
+    font-family: var(--ff-primary);
+}
+textarea {
+    resize: vertical;
+}
+
+/* =========================================================
+   CHECKBOX
+   ========================================================= */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.6rem;
+    font-size: calc(0.8rem + 0.4vw);
+}
+.checkbox-container span a {
+    color: var(--clr-accent1);
+    text-decoration: none;
+}
+.checkbox-container span a:hover {
+    text-decoration: underline;
+}
+.label {
+    display: flex;
+    align-items: end;
+    margin-left: 3%;
+    color: #111;
+}
+
+/* =========================================================
+   BUTTON
+   ========================================================= */
+.btn__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 1.6rem;
+    padding: 1rem 1.5rem;
+    gap: 10px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--clr-accent3);
+    color: #f2f2f2;
+    font-weight: var(--fw-bold);
+    font-size: calc(1rem + 0.4vw);
+    cursor: pointer;
+    filter: brightness(1);
+    letter-spacing: 0.05em;
+    font-family: var(--ff-primary);
+}
+.btn__form:hover {
+    filter: brightness(1.2);
+}
+
+/* =========================================================
+   DROPDOWN
+   ========================================================= */
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.select-menu {
+    width: 100%;
+    padding: 1.2rem 1.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: var(--fs-btn);
+    font-weight: var(--fw-reg);
+    cursor: pointer;
+}
+.select-menu:hover {
+    background-color: #f2f2f2;
+}
+
+.select-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.options {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+.option {
+    padding: 1.2rem 1.6rem;
+    cursor: pointer;
+}
+.option:hover {
+    background-color: #f2f2f2;
+}
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+.how-it-works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.6rem;
+    text-align: center;
+    width: 100%;
+}
+
+.how-it-works h1 {
+    font-weight: var(--fw-semibold);
+    font-size: calc(1.2rem + 0.4vw);
+    margin-bottom: 1.4rem;
+    text-transform: capitalize;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.steps img {
+    max-width: 40rem;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 1200px) {
+    .form__container {
+        flex-direction: column;
+        align-items: center; /* stack vertically */
+        max-width: 90%;
+        gap: 3rem;
+    }
+
+    .form__container > * {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* On mobile, image can be auto height */
+    .container__image img {
+        height: auto;
+        object-fit: contain; /* or cover, depending on preference */
+    }
+}

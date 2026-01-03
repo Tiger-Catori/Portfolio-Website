@@ -1,73 +1,166 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import "../css/navbar.css";
-import "../css/button.css";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
-// Main Navbar component
 const NavbarComponent = () => {
-  return (
-    <Navbar expand="lg" sticky="top" className="navbar navbar-dark">
-      <Container className="navbar-container">
-        {/* Logo */}
-        {/* Navbar toggle for mobile */}
-        <Navbar.Toggle
-          aria-controls="main-nav"
-          className="navbar-toggler"
-          data-bs-toggle="collapse"
-          data-bs-target="#main-nav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        />
+  return <NavbarSection />;
+};
 
-        {/* Navbar links and contact button */}
-        <Navbar.Collapse
-          id="main-nav"
-          className="collapse navbar-collapse justify-content-end align-center"
-        >
-          <Nav className="ml-auto nav__buttons">
-            <NavLinks />
-            <ContactButton />
-          </Nav>
-        </Navbar.Collapse>
+export default NavbarComponent;
+
+const NavbarSection = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // close mobile menu on resize up to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return (
+    <Navbar
+      expand="lg"
+      className={`navbar navbar-dark nav__bar ${
+        isSticky ? "navbar--sticky" : ""
+      }`}
+    >
+      <Container className="nav__section">
+        {/* <Logo />*/}
+        <NavLinks isOpen={isMenuOpen} />
+        <NavbarHamburger
+          isOpen={isMenuOpen}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        />
       </Container>
     </Navbar>
   );
 };
 
-// Logo component
+// Logo Component
 const Logo = () => {
+  const handleClick = () => {
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 0);
+  };
+
   return (
-    <Navbar.Brand href="#home">
-      <img src="/images/logo/logo.png" alt="Logo" className="logo-img" />
+    <Navbar.Brand
+      as={Link}
+      to="/"
+      className="logo__img-container"
+      onClick={handleClick}
+    >
+      <img src="/images/general/logo.webp" alt="Logo" className="logo__img" />
     </Navbar.Brand>
   );
 };
 
-// Navigation links component
-const NavLinks = () => {
+// Nav links
+
+const NavLinks = ({ isOpen }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = (hash) => {
+    if (location.pathname === "/") {
+      // Already on Home page
+      navigate({ pathname: "/", hash: `#${hash}` }, { replace: false });
+      // Then manually scroll (with small delay) to ensure element exists
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 50);
+    } else {
+      // Navigate to home and include hash
+      navigate({ pathname: "/", hash: `#${hash}` }, { replace: false });
+      // Then scroll after a small delay
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  };
+
   return (
-    <Nav className="nav__links">
-      <Nav.Link href="#">
+    <Nav className={`nav__links ${isOpen ? "nav__links--open" : ""}`}>
+      <Nav.Link
+        as={Link}
+        className="nav__link"
+        to="/"
+        onClick={() => handleClick("home")}
+      >
         <span>Home</span>
       </Nav.Link>
-      <Nav.Link href="#hero">
+
+      <Nav.Link
+        as={Link}
+        className="nav__link"
+        to="/"
+        onClick={() => handleClick("about")}
+      >
         <span>About</span>
       </Nav.Link>
-      <Nav.Link href="#projects">
+      <Nav.Link
+        as={Link}
+        className="nav__link"
+        to="/"
+        onClick={() => handleClick("projects")}
+      >
         <span>Projects</span>
       </Nav.Link>
-      {/* <Nav.Link href="#contact"><span>Contact</span></Nav.Link> */}
+      {/* <Nav.Link
+        as={Link}
+        className="nav__link"
+        to="/"
+        onClick={() => handleClick("form-section")}
+      >
+        <span>Contact us</span>
+      </Nav.Link>*/}
     </Nav>
   );
 };
 
-// Contact button component
-const ContactButton = () => {
+// Navbar Hamburger
+const NavbarHamburger = ({ isOpen, onClick }) => {
   return (
-    <div className="btn-contact">
-      <a href="mailto:michaeladeleye365@gmail.com">Contact me</a>
+    <div className={`menu ${isOpen ? "menu--open" : ""}`} onClick={onClick}>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
   );
 };
 
-export default NavbarComponent;
+// Contact button component
+// const ContactButton = () => {
+//   return (
+//     <div className="btn-contact">
+//       <a href="mailto:michaeladeleye365@gmail.com">Contact me</a>
+//     </div>
+//   );
+// };

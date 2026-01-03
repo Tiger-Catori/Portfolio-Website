@@ -1,6 +1,11 @@
 import React from "react";
 import "../css/projects.css";
 
+const ProjectsComponent = () => {
+  return <Projects />;
+};
+export default ProjectsComponent;
+
 const Projects = () => {
   // Portfolio item data with image filenames
   const portfolioItems = [
@@ -37,5 +42,3 @@ const Projects = () => {
     </section>
   );
 };
-
-export default Projects;

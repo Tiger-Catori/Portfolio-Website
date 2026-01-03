@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
-/* Global Reset */
+/* =========================
+   Global Reset
+========================= */
 *,
 *::before,
 *::after {
@@ -10,125 +12,137 @@
     padding: 0;
 }
 
-/* Custom Properties (CSS Variables) */
+/* =========================
+   CSS Variables
+========================= */
 :root {
-    /* Font settings */
+    /* Fonts */
     --ff-primary: "Montserrat", sans-serif;
     --ff-secondary: "Assistant", sans-serif;
+
     --fw-light: 300;
-    --fw-reg: 400;
-    --fw-semibold: 500;
+    --fw-regular: 400;
+    --fw-medium: 500;
     --fw-bold: 700;
 
-    /* Color palette */
-    --clr-accent: #3b82f6;
-    --clr-accent2: #343a3d;
-    --clr-accent3: #ff8200;
-    --clr-accent4: #60a5fa;
-    --clr-hover: #497ff3;
-    --clr-hover2: #2563eb;
-    --clr-shade: #128a66;
-    --clr-body: #35312a;
-    --clr-banner: #ffbb69;
-    --clr-headings: #060506;
-    --clr-headings2: #fff;
-    --clr-body2: #f5f5f5;
+    /* 🎨 Color Palette (5 Accents) */
+    --clr-accent1: #2563eb;
+    --clr-accent2: #1f2933;
+    --clr-accent3: #f59e0b;
+    --clr-accent4: #f9fafb;
+    --clr-accent5: #374151;
 
-    /* Font size */
+    --clr-white: #ffffff;
+
+    /* Font Sizes */
     --fs-title: 5rem;
     --fs-h1: 3.6rem;
     --fs-h2: 2.4rem;
     --fs-h3: 2rem;
-    --fs-body: 1.75rem;
-    --fs-btn: 1.5rem;
+    --fs-body: 1.6rem;
+    --fs-btn: 1.4rem;
 
-    --spacing-mb: 4.8rem;
-    --max-width: 80%;
+    /* Layout */
+    --spacing-section: 4.8rem;
+    --max-width: 100rem;
 
-    /* Box shadow */
-    --bs-1: 0px 4px 16px rgba(0, 0, 0, 0.2);
-    --bs-2: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    /* Shadows */
+    --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
 
-/* Responsive font sizes */
+/* =========================
+   Responsive Typography
+========================= */
 @media (max-width: 1200px) {
     :root {
-        --fs-title: 4.5rem;
-        --fs-h1: 2.7rem;
-        --fs-h2: 2rem;
-        --fs-h3: 1.65rem;
+        --fs-title: 4.2rem;
+        --fs-h1: 2.8rem;
+        --fs-h2: 2.1rem;
+        --fs-h3: 1.7rem;
         --fs-body: 1.4rem;
         --fs-btn: 1.2rem;
     }
 }
 
-/* Scrollbar styles */
-html::-webkit-scrollbar {
-    width: 0.8rem;
-    height: 1rem;
-}
-
-html::-webkit-scrollbar-track {
-    background: var(--clr-headings);
-}
-
-html::-webkit-scrollbar-thumb {
-    background-color: var(--clr-accent);
-    border-radius: none;
-    padding-left: 0.1rem;
-}
-
-/* Body and container styling */
+/* =========================
+   Base Layout
+========================= */
 html {
-    scroll-behavior: smooth;
     font-size: 62.5%;
+    scroll-behavior: smooth;
     overflow-x: hidden;
 }
 
 body {
-    font-size: var(--fs-body);
     font-family: var(--ff-primary);
+    font-size: var(--fs-body);
     line-height: 1.6;
+    background-color: var(--clr-accent1);
+    color: var(--clr-accent4);
     overflow-x: hidden;
-    background-color: var(--clr-accent);
 }
 
-/* Containers */
-.container__body {
-    color: var(--clr-body);
-    max-width: 100rem;
-    margin: 0 auto;
-    line-height: 1.6;
+/* =========================
+   Scrollbar
+========================= */
+html::-webkit-scrollbar {
+    width: 0.8rem;
 }
 
-ul {
-    list-style: none;
+html::-webkit-scrollbar-track {
+    background: var(--clr-accent2);
 }
 
-ul a {
-    text-decoration: none;
-    color: #fff;
+html::-webkit-scrollbar-thumb {
+    background-color: var(--clr-accent1);
 }
 
-/* Section and Heading Styles */
+/* =========================
+   Typography
+========================= */
 .heading {
-    font-weight: var(--fw-bold);
     font-size: calc(2rem + 0.8vw);
+    font-weight: var(--fw-bold);
     margin-bottom: 2.4rem;
+    color: var(--clr-accent2);
     text-transform: capitalize;
 }
 
 .heading span {
-    color: var(--clr-accent);
+    color: var(--clr-accent1);
 }
 
+/* =========================
+   Layout Helpers
+========================= */
 .section {
-    padding: 4em 2em;
+    padding: var(--spacing-section) 2rem;
+}
+
+.container__body {
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
 .container {
     display: flex;
-    flex-direction: row;
-    column-gap: 6.4rem;
-    row-gap: 1.8rem;
+    gap: 3.2rem;
+}
+
+/* =========================
+   Lists & Links
+========================= */
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-accent1);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--clr-accent3);
 }

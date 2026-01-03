@@ -1,8 +1,7 @@
 /* Section and Banner styling */
 .section__banner {
-    padding: 4.8rem 0 3.2rem 0;
-    background-color: #ffcc9f;
-    /*background-color: var(--clr-accent);*/
+    padding: 1.6rem 2rem;
+    background-color: #f2f2f2;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,35 +14,56 @@
 }
 
 /* Banner container and items */
-.banner__container {
-    width: 100%;
+.banner__track {
     display: flex;
-    flex-direction: row;
-    /*flex-wrap: wrap;*/
-    justify-content: center;
+    width: max-content; /* Make it twice the width of banner__items for the scrolling effect */
+    animation: scroll 15s linear infinite; /* Apply animation */
+}
+
+.section__banner:hover .banner__track {
+    animation-play-state: paused;
 }
 
 .banner__items {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
-    width: 100%;
-    max-width: 130rem;
-    padding: 0 20px;
+    align-items: center;
+    gap: 12rem;
+    margin-right: 12rem;
+    /* Each set should take up 50% of the track width */
 }
 
-/* Banner image styling */
 .banner__img {
-    filter: grayscale(100%); /* Ensure this filter is applied */
+    filter: grayscale(100%);
     height: 9rem;
     width: auto;
-    max-height: 7rem; /* Ensure images don't get stretched */
-    transition: filter 0.3s ease; /* Add transition for smooth hover effect */
+    max-height: 9rem;
+    transition: filter 0.3s ease;
     opacity: 1;
     margin: 2rem;
 }
+/*.banner__img {
+    height: 9rem;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+    margin: 0;
+    opacity: 1;
+    aspect-ratio: 16/10;
+}*/
 
 .banner__img:hover {
-    filter: grayscale(0%); /* Removes greyscale effect on hover */
+    filter: grayscale(0%);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }

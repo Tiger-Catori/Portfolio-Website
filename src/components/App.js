@@ -1,37 +1,28 @@
-import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import Navbar from "./Navbar";
-import Hero from "./Hero";
-import Footer from "./Footer";
-import Banner from "./Banner";
-import Projects from "./Projects";
-// import About from "./About";
+// App.js
+import { Routes, Route } from "react-router-dom";
+import NavbarComponent from "./Navbar";
+import Home from "../pages/Home";
+// import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+// import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+// import ErrorPage from "./pages/ErrorPage";
+// ...other imports
 
 function App() {
   return (
-    <body>
-      <Navbar />
-      <Hero />
-      <div className="container__body">
-        {/* <Navbar /> This means the width is not 100% of viewport */}
-
-        {/* <Hero /> */}
-        {/* Other components or content */}
-        {/* <Projects/> */}
-      </div>
-      <Banner />
-      <Projects />
-      <Footer />
-      <script
-        type="module"
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-        nomodule
-        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      ></script>
-    </body>
+    <div id="home" className="container__body">
+      <NavbarComponent />
+      <main className="main__content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditionsPage />}
+          />
+          <Route path="/*" element={<ErrorPage />} />*/}
+        </Routes>
+      </main>
+    </div>
   );
 }
 

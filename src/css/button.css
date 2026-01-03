@@ -3,7 +3,7 @@
 /* General Button styles */
 .btn,
 .btn-link {
-    background-color: var(--clr-accent);
+    background-color: var(--clr-accent1);
     color: var(--clr-headings2);
     border: none;
     font-size: var(--fs-body);
@@ -28,7 +28,7 @@
 /* Hero Section Button */
 .hero__btn,
 .hero__btn-link {
-    background: var(--clr-hover);
+    background: var(--clr-accent1);
     color: white;
     font-size: var(--fs-h3);
     font-weight: var(--fw-semibold);
@@ -45,7 +45,7 @@
 .hero__btn:hover,
 .hero__btn-link:hover {
     filter: brightness(1.15);
-    background: var(--clr-accent);
+    background: var(--clr-accent1);
     box-shadow: 0 6px 20px rgba(80, 102, 139, 0.4);
 }
 

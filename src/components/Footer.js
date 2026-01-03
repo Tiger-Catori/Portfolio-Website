@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import "../css/footer.css";
 
+const FooterComponent = () => {
+  return <Footer />;
+};
+export default FooterComponent;
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -16,8 +21,6 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;
 
 const FooterLogo = () => {
   return (
@@ -118,15 +121,20 @@ const FooterBottom = () => {
   return (
     <div className="footer__bottom">
       <p>
-        &copy; <span id="current-year"></span> Michael Adeleye. All rights
+        &copy; <span id="current-year"></span> Help4Landlords. All rights
         reserved.
       </p>
-      {/* <p><a href="https://webmagnetism.com/">Powered by WebMagnetism.com</a></p> */}
+
       <p>
-        <a href="#">Terms & Conditions</a>
+        <a target="_blank" href="/terms-and-conditions">
+          Terms &amp; Conditions
+        </a>
       </p>
+
       <p>
-        <a href="#">Privacy Policy</a>
+        <a target="_blank" href="/privacy-policy">
+          Privacy Policy
+        </a>
       </p>
     </div>
   );
