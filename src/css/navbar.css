@@ -75,7 +75,7 @@
     padding: 0;
     margin: 0;
     align-items: center;
-    max-width: 130rem;
+    max-width: 110rem;
     font-size: var(--fs-btn);
     margin: 0 auto;
 }
@@ -84,19 +84,34 @@
     font-size: var(--fs-h2);
     font-weight: var(--fw-semibold);
     text-decoration: none;
-    color: var(--clr-accent);
+    color: var(--clr-accent1);
     position: relative; /* Ensures glow effect works correctly */
     transition: color 0.3s ease;
 }
 
 /* Hover effect on the entire .nav__link */
 .nav__link:hover {
-    color: var(--clr-accent);
+    color: var(--clr-accent1);
     text-decoration: underline; /* Standard underline */
     filter: brightness(1.4);
 
     /* Adding glow effect when hovering */
     text-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.nav__link {
+    transition:
+        color 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--clr-accent1); /* brighter text on hover */
+    text-shadow:
+        0 0 8px rgba(37, 99, 235, 0.6),
+        0 0 16px rgba(37, 99, 235, 0.4),
+        0 0 24px rgba(37, 99, 235, 0.25);
+    filter: brightness(1.4);
 }
 
 /* Ensure no unnecessary glow effect from the span */
@@ -124,8 +139,13 @@
 .menu span {
     height: 0.4rem;
     width: 80%;
-    background-color: var(--clr-accent);
+    filter: brightness(1.2);
+    background-color: var(--clr-accent1);
     border-radius: 0.2rem;
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
 }
 
 .menu span:nth-child(even) {
@@ -138,8 +158,14 @@
 }
 
 .menu:hover span {
-    background-color: var(--clr-accent2);
-    box-shadow: 0 0 30px rgba(237, 63, 39, 0.7);
+    background-color: var(--clr-accent1); /* brighter bar color */
+    filter: brightness(1.2);
+
+    /* soft blue glow */
+    box-shadow:
+        0 0 8px rgba(37, 99, 235, 0.6),
+        0 0 16px rgba(37, 99, 235, 0.4),
+        0 0 24px rgba(37, 99, 235, 0.25);
 }
 
 @media (max-width: 120rem) {
@@ -170,28 +196,24 @@
 
     /* Dropdown card when menu is toggled open */
     /* Instead of opacity, use a semi-transparent background color */
+    /* MOBILE DROPDOWN (start just below navbar) */
     .nav__links.nav__links--open {
         display: flex !important;
         flex-direction: column;
         position: absolute;
-        top: 100%;
+
+        top: 2.4rem; /* move below navbar */
         right: 1.5rem;
+
         width: min(240px, 80vw);
         padding: 2rem;
-        margin-top: 1rem;
-        background-color: rgba(
-            0,
-            0,
-            0,
-            0.99
-        ); /* 85% opaque, adjust alpha as needed */
+        margin-top: 0.5rem; /* optional extra spacing */
+        background-color: rgba(0, 0, 0, 0.99);
         border-radius: 1.2rem;
         border-top-right-radius: 0;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
         row-gap: 1rem;
         z-index: 30;
-        /* remove any opacity property if present */
-        /* opacity: 1; or just no opacity setting */
     }
 
     .navbar:has(.nav__links--open) {

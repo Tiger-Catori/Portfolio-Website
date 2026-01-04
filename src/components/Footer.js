@@ -121,7 +121,7 @@ const FooterBottom = () => {
   return (
     <div className="footer__bottom">
       <p>
-        &copy; <span id="current-year"></span> Help4Landlords. All rights
+        &copy; <span id="current-year"></span> Michael Adeleye. All rights
         reserved.
       </p>
 

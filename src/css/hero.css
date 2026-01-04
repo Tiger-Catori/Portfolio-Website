@@ -69,8 +69,9 @@
 }
 
 .hero_head span {
-    color: var(--clr-banner);
+    color: var(--clr-accent1);
     display: inline-block;
+    filter: brightness(1.4);
 }
 
 .hero__p {
