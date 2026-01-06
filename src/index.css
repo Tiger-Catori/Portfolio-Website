@@ -21,8 +21,8 @@
     --ff-secondary: "Assistant", sans-serif;
 
     --fw-light: 300;
-    --fw-regular: 400;
-    --fw-medium: 500;
+    --fw-reg: 400;
+    --fw-semibold: 500;
     --fw-bold: 700;
 
     /* 🎨 Color Palette (5 Accents) */
@@ -31,6 +31,7 @@
     --clr-accent3: #497dee;
     --clr-accent4: #f9fafb;
     --clr-accent5: #374151;
+    --clr-accent6: #c7d7fa;
 
     --clr-white: #ffffff;
 
@@ -135,7 +136,7 @@ html::-webkit-scrollbar-thumb:hover {
 ========================= */
 .section {
     padding: var(--spacing-section) 2rem;
-    background-color: #c7d7fa;
+    background-color: var(--clr-accent6);
 }
 
 .container__body {

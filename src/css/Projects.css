@@ -1,7 +1,7 @@
 /* My Projects */
 .my-projects {
     font-family: var(--ff-primary);
-    background-color: var(--clr-accent);
+    background-color: var(--clr-accent1);
     color: var(--clr-body2);
     text-align: center;
     opacity: 0.87;
@@ -42,7 +42,8 @@
     position: relative;
     border-radius: none;
     aspect-ratio: 4/3;
-    flex: 0 0 calc(33.333% - 2rem); /* 3 columns with gap */
+    flex: 0 0 calc(33.333% - 2rem);
+    flex: 0 0 calc(50% - 2rem);
     max-width: 50rem; /* Max width for larger screens */
 }
 

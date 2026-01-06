@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../css/footer.css";
+import "../css/Footer.css";
 
 const FooterComponent = () => {
   return <Footer />;
@@ -22,17 +22,17 @@ const Footer = () => {
   );
 };
 
-const FooterLogo = () => {
-  return (
-    <div className="footer-col logo-footer">
-      <img src="/images/logo/logo.png" alt="Fasco Logo" />
-      <p>
-        Lorem ipsum dolor sit amet consectetur. Leo lectus posuere tellus auctor
-        non ac in. Tristique feugiat senectus ultrices m
-      </p>
-    </div>
-  );
-};
+// const FooterLogo = () => {
+//   return (
+//     <div className="footer-col logo-footer">
+//       <img src="/images/logo/logo.png" alt="Fasco Logo" />
+//       <p>
+//         Lorem ipsum dolor sit amet consectetur. Leo lectus posuere tellus auctor
+//         non ac in. Tristique feugiat senectus ultrices m
+//       </p>
+//     </div>
+//   );
+// };
 
 const FooterLinks = () => {
   return (
@@ -94,21 +94,21 @@ const FooterSocialLinks = () => {
   );
 };
 
-const FooterAppLinks = () => {
-  return (
-    <div className="footer-col col-three">
-      <h4>DOWNLOAD THE APP</h4>
-      <div className="app-buttons">
-        <a href="#google-play">
-          <img src="/images/general/googleplay.webp" alt="Google Play" />
-        </a>
-        <a href="#app-store">
-          <img src="/images/general/appstore.webp" alt="App Store" />
-        </a>
-      </div>
-    </div>
-  );
-};
+// const FooterAppLinks = () => {
+//   return (
+//     <div className="footer-col col-three">
+//       <h4>DOWNLOAD THE APP</h4>
+//       <div className="app-buttons">
+//         <a href="#google-play">
+//           <img src="/images/general/googleplay.webp" alt="Google Play" />
+//         </a>
+//         <a href="#app-store">
+//           <img src="/images/general/appstore.webp" alt="App Store" />
+//         </a>
+//       </div>
+//     </div>
+//   );
+// };
 
 const FooterBottom = () => {
   useEffect(() => {

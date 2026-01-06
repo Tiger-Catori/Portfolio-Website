@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../css/navbar.css";
+import "../css/Navbar.css";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -57,24 +57,24 @@ const NavbarSection = () => {
 };
 
 // Logo Component
-const Logo = () => {
-  const handleClick = () => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, 0);
-  };
+// const Logo = () => {
+//   const handleClick = () => {
+//     setTimeout(() => {
+//       window.scrollTo({ top: 0, behavior: "smooth" });
+//     }, 0);
+//   };
 
-  return (
-    <Navbar.Brand
-      as={Link}
-      to="/"
-      className="logo__img-container"
-      onClick={handleClick}
-    >
-      <img src="/images/general/logo.webp" alt="Logo" className="logo__img" />
-    </Navbar.Brand>
-  );
-};
+//   return (
+//     <Navbar.Brand
+//       as={Link}
+//       to="/"
+//       className="logo__img-container"
+//       onClick={handleClick}
+//     >
+//       <img src="/images/general/logo.webp" alt="Logo" className="logo__img" />
+//     </Navbar.Brand>
+//   );
+// };
 
 // Nav links
 

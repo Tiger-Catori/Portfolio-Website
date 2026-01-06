@@ -71,12 +71,7 @@ const Form = () => {
         </div>
 
         <AgreementCheckbox />
-
-        <button className="button red-button btn__form" type="submit">
-          <div className="button-content">
-            <span className="text">Get Started</span>
-          </div>
-        </button>
+        <FormButton />
 
         {/* <HowItWorks />*/}
       </form>
@@ -137,6 +132,16 @@ const AgreementCheckbox = () => (
     </label>
   </div>
 );
+
+const FormButton = () => {
+  return (
+    <button className="button red-button btn__form" type="submit">
+      <div className="button-content">
+        <span className="text">Submit Form</span>
+      </div>
+    </button>
+  );
+};
 
 // const HowItWorks = () => (
 //   <div className="how-it-works">

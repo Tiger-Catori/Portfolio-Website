@@ -22,7 +22,7 @@
 
 .btn:hover,
 .btn-link:hover {
-    filter: brightness(1.15);
+    filter: brightness(1.2);
 }
 
 /* Hero Section Button */
@@ -32,7 +32,7 @@
     color: white;
     font-size: var(--fs-h3);
     font-weight: var(--fw-semibold);
-    padding: 0.8rem 1.6rem;
+    padding: 1.6rem 3.2rem;
     border-radius: 0;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -40,6 +40,7 @@
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
+    border-radius: 6px;
 }
 
 .hero__btn:hover,
@@ -49,30 +50,6 @@
     box-shadow: 0 6px 20px rgba(80, 102, 139, 0.4);
 }
 
-/* Contact Button */
-.btn-contact {
-    background-color: var(--clr-accent);
-    color: var(--clr-headings2);
-    border: none;
-    font-size: var(--fs-body);
-    text-transform: uppercase;
-    padding: 0.5rem 1rem;
-    border-radius: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btn-contact:hover {
-    filter: brightness(1.15);
-    background: var(--clr-hover2);
-    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-}
-
-.btn-contact a,
 .hero__btn-link a {
     color: #fff;
     text-decoration: none;

@@ -2,7 +2,7 @@
 .section__hero {
     position: relative;
     width: 100%;
-    min-height: 76vh;
+    min-height: 85vh;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -50,6 +50,7 @@
     width: 100%;
     position: relative;
     z-index: 2;
+    margin-top: 3.6rem;
     gap: 4rem;
 }
 
@@ -85,13 +86,13 @@
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    max-width: 500px;
+    max-width: 600px;
 }
 
 .hero__img {
     width: 100%;
     height: auto;
-    max-height: 500px;
+    max-height: 600px;
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);

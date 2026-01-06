@@ -1,0 +1,45 @@
+.not__found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    max-width: 130rem;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+/* Style for the individual digits */
+.not__found h1 .digit {
+    font-size: calc(10rem + 3vw);
+    font-weight: bold;
+    color: var(--clr-accent5); /* Or whatever dark color you prefer */
+    /* Optional: Adjust letter spacing slightly if needed */
+    /* letter-spacing: -0.5em; */
+}
+
+.not__found h1 .digit:nth-child(2) {
+    color: var(--clr-accent5);
+}
+
+/* Keep the rest of your styles the same */
+.not__found p {
+    font-size: calc(1.4rem + 0.6vw);
+    /*font-weight: var(--fw-semibold);*/
+    margin-bottom: 2.2rem;
+    color: #111;
+}
+
+.path {
+    font-size: calc(1.6rem + 0.8vw);
+    color: #111;
+}
+
+@media (max-width: 1050px) {
+    .not__found {
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+    }
+}

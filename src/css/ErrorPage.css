@@ -1,0 +1,22 @@
+/* Ensure no default margin/padding interferes */
+/*html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}*/
+
+/* Full viewport height wrapper */
+.error-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Takes at least full viewport height */
+}
+
+/* Push footer to bottom and let main grow */
+.not-found-main {
+    flex: 1; /* This makes it fill remaining space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

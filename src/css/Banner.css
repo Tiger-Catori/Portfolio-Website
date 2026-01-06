@@ -1,5 +1,5 @@
 /* Section and Banner styling */
-.section__banner {
+/*.section__banner {
     padding: 1.6rem 2rem;
     background-color: #f2f2f2;
     background-size: cover;
@@ -11,6 +11,19 @@
     flex-direction: column;
     opacity: 0.8;
     width: 100%;
+}*/
+
+.section__banner {
+    padding: 7rem 2rem;
+    /*background-color: #f2f2f2;*/
+    background-color: #c7d7fa;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    overflow: hidden;
+    width: 100%;
+    /*max-width: 130rem;*/
+    margin: 0 auto;
 }
 
 /* Banner container and items */
@@ -18,6 +31,7 @@
     display: flex;
     width: max-content; /* Make it twice the width of banner__items for the scrolling effect */
     animation: scroll 15s linear infinite; /* Apply animation */
+    /*max-width: 130rem;*/
 }
 
 .section__banner:hover .banner__track {
@@ -30,8 +44,8 @@
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
-    gap: 12rem;
-    margin-right: 12rem;
+    gap: 18rem;
+    margin-right: 18rem;
     /* Each set should take up 50% of the track width */
 }
 

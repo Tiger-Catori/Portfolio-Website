@@ -53,7 +53,10 @@
    FORM BASE STYLES
    ========================================================= */
 .web__form {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center form within its section */
+    height: 100%;
 }
 .web__form h1 {
     text-align: center;
@@ -92,6 +95,7 @@
 }
 textarea {
     resize: vertical;
+    height: 12rem;
 }
 
 /* =========================================================
@@ -132,7 +136,7 @@ textarea {
     text-transform: uppercase;
     border: none;
     border-radius: 4px;
-    background-color: var(--clr-accent3);
+    background-color: var(--clr-accent1);
     color: #f2f2f2;
     font-weight: var(--fw-bold);
     font-size: calc(1rem + 0.4vw);

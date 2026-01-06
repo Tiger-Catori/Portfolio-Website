@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/projects.css";
+import "../css/Projects.css";
 
 const ProjectsComponent = () => {
   return <Projects />;
@@ -12,6 +12,7 @@ const Projects = () => {
     { id: 1, img: "portfolio-02.webp", alt: "Project 2 preview" },
     { id: 2, img: "portfolio-01.webp", alt: "Project 1 preview" },
     { id: 3, img: "portfolio-03.webp", alt: "Project 3 preview" },
+    { id: 3, img: "portfolio-12.webp", alt: "Project 4 preview" },
   ];
 
   return (
