@@ -46,7 +46,7 @@ const FooterLinks = () => {
           <a href="#hero">About me</a>
         </li>
         <li>
-          <a href="#projects">My work</a>
+          <a href="#projects">Projects</a>
         </li>
         <li>
           <a href="mailto:michaeladeleye365@gmail.com" class="footer-link">

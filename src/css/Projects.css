@@ -40,7 +40,7 @@
     background-color: none;
     overflow: hidden;
     position: relative;
-    border-radius: none;
+    border-radius: 12px;
     aspect-ratio: 4/3;
     flex: 0 0 calc(33.333% - 2rem);
     flex: 0 0 calc(50% - 2rem);

@@ -26,7 +26,7 @@ const IntroSection = () => {
       <h2>Privacy Policy</h2>
       <p>
         This privacy policy applies between you, the User of this Website and
-        Help4Landlords, the owner and provider of this Website…
+        Michael Adeleye, the owner and provider of this Website…
       </p>
       <h4>Please read this privacy policy carefully.</h4>
     </>
@@ -40,7 +40,7 @@ const DefinitionsSection = () => {
       <p>In this privacy policy, the following definitions are used:</p>
       <h4>Data</h4>
       <p>
-        Collectively all information that you submit to Help4Landlords via the
+        Collectively all information that you submit to Michael Adeleye via the
         Website. This definition incorporates, where applicable, the definitions
         provided in the Data Protection Laws.
       </p>
@@ -67,7 +67,7 @@ const ScopeSection = () => {
     <div>
       <h4>Scope of this Privacy Policy</h4>
       <p>
-        This privacy policy applies only to the actions of Help4Landlords and
+        This privacy policy applies only to the actions of Michael Adeleye and
         Users with respect to this Website. It does not extend to any websites
         that can be accessed from this Website including, but not limited to,
         any links we may provide to social media websites.

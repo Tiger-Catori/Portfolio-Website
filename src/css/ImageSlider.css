@@ -1,0 +1,166 @@
+.section__slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    /* background: #f1f4fd; */
+}
+
+.slider__container {
+    max-width: 1200px;
+    width: 95%;
+    margin: auto; /* Center the slider container */
+}
+
+.slider-wrapper {
+    position: relative;
+    /* overflow: hidden;  Prevents overflow of the images */
+}
+
+.slider-wrapper .slide-button {
+    position: absolute;
+    top: 50%;
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+    z-index: 5;
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+    font-size: 2.2rem;
+    background: #000;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.slider-wrapper .slide-button:hover {
+    background: #404040;
+}
+
+.slider-wrapper .slide-button#prev-slide {
+    left: -25px;
+    display: none;
+}
+
+.slider-wrapper .slide-button#next-slide {
+    right: -25px;
+}
+
+.slider-wrapper .image-list {
+    display: flex; /* Changed from grid to flex for easier handling of horizontal scrolling */
+    gap: 1.8rem;
+    font-size: 0;
+    list-style: none;
+    margin-bottom: 3em;
+    overflow-x: auto;
+    scrollbar-width: none;
+    /* Optional: For smoother scrolling and snap effect */
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.slider-wrapper .image-list::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-wrapper .image-list .image-item {
+    flex: 0 0 auto; /* Prevents images from stretching and ensures they maintain their size */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 610px;
+    min-height: 250px;
+    width: 946px;
+    object-fit: cover;
+}
+
+/* .slider-wrapper .image-list .image-item:focus {
+  transform: scale(1.05);
+} */
+
+/*SCROLLBAR*/
+
+.container .slider-scrollbar {
+    height: 24px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.slider-scrollbar {
+    height: 2.4rem;
+    width: 70%; /* Adjusted width to a % of its parent container */
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 2rem auto 0; /* Centers the scrollbar horizontally and adds space above */
+}
+
+.slider-scrollbar .scrollbar-track {
+    background: #ccc;
+    width: 100%; /* Ensures the track spans the entire width of .slider-scrollbar */
+    height: 2px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+}
+
+.slider-scrollbar:hover .scrollbar-track {
+    height: 0.4rem;
+}
+
+/* .slider-scrollbar:hover .scrollbar-track {
+    height: 0.4rem;
+  } */
+
+.slider-scrollbar .scrollbar-thumb {
+    position: absolute;
+    background: var(--clr-accent);
+    /* background: #111; */
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    height: 100%;
+    cursor: grab;
+    border-radius: inherit;
+}
+
+.slider-scrollbar .scrollbar-thumb:active {
+    cursor: grabbing;
+    height: 0.6rem;
+    top: -2px;
+}
+
+.slider-scrollbar .scrollbar-thumb::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -10px;
+    bottom: -10px;
+}
+
+/* Styles for mobile and tablets */
+@media only screen and (max-width: 1023px) {
+    .slider-wrapper .slide-button {
+        display: none !important;
+    }
+
+    .slider-wrapper .image-list {
+        gap: 10px;
+        margin-bottom: 15px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .slider-wrapper .image-list .image-item {
+        width: 280px;
+        height: 380px;
+    }
+
+    .slider-scrollbar .scrollbar-thumb {
+        width: 20%;
+    }
+}
