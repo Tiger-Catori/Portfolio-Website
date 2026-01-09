@@ -17,8 +17,10 @@ const ImageSlider = () => {
   return (
     <section className="section section__slider">
       <div className="slider__container">
-        <h2 className="section__title">Gallery</h2>
-        <p className="section__subtitle">Explore our Feature Gallery</p>
+        <h2 className="section__title section__title--gallery">Gallery</h2>
+        <p className="section__subtitle section__subtitle--gallery">
+          Explore our Feature Gallery
+        </p>
         {/* Pass refs and state to SliderWrapper */}
         <SliderWrapper
           imageListRef={imageListRef}
@@ -163,11 +165,6 @@ const ImageList = React.forwardRef(({ onScroll }, ref) => {
     <ul className="image-list" ref={ref} onScroll={onScroll}>
       <img
         className="image-item"
-        src="images/gallery/portrait-photos/michael-1.webp"
-        alt="img-1"
-      />
-      <img
-        className="image-item"
         src="images/gallery/portrait-photos/michael-2.webp"
         alt="img-2"
       />
@@ -196,11 +193,11 @@ const ImageList = React.forwardRef(({ onScroll }, ref) => {
         src="images/gallery/portrait-photos/michael-7.webp"
         alt="img-7"
       />
-      {/* <img className="image-item" src="images/gallery/michael-8.webp" alt="img-8" />
-      <img className="image-item" src="images/gallery/michael-9.webp" alt="img-9" />
-      <img className="image-item" src="images/gallery/michael-10.webp" alt="img-10" />
-      <img className="image-item" src="images/gallery/michael-11.webp" alt="img-11" />
-      <img className="image-item" src="images/gallery/michael-12.webp" alt="img-12" />*/}
+      <img
+        className="image-item"
+        src="images/gallery/portrait-photos/michael-1.webp"
+        alt="img-1"
+      />
     </ul>
   );
 });

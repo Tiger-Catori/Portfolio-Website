@@ -12,8 +12,8 @@ const Home = () => {
     <>
       <NavbarComponment />
       <HeroComponent />
-      <BannerComponent />
       <SliderComponent />
+      <BannerComponent />
       <ProjectsComponent />
       <FormComponent />
       <FooterComponent />
