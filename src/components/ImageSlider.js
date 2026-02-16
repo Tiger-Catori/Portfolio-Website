@@ -8,10 +8,10 @@ const SliderComponent = () => {
 export default SliderComponent;
 
 const ImageSlider = () => {
-  // Defining refs
   const imageListRef = useRef(null);
   const sliderScrollbarRef = useRef(null);
   const scrollbarThumbRef = useRef(null);
+
   const [maxScrollLeft, setMaxScrollLeft] = useState(0);
 
   return (
@@ -21,18 +21,13 @@ const ImageSlider = () => {
         <p className="section__subtitle section__subtitle--gallery">
           Explore our Feature Gallery
         </p>
-        {/* Pass refs and state to SliderWrapper */}
+
         <SliderWrapper
           imageListRef={imageListRef}
           sliderScrollbarRef={sliderScrollbarRef}
           scrollbarThumbRef={scrollbarThumbRef}
           maxScrollLeft={maxScrollLeft}
           setMaxScrollLeft={setMaxScrollLeft}
-        />
-        {/* Pass refs and state to SliderScrollbar to it can attach to DOM */}
-        <SliderScrollbar
-          sliderScrollbarRef={sliderScrollbarRef}
-          scrollbarThumbRef={scrollbarThumbRef}
         />
       </div>
     </section>
@@ -46,168 +41,207 @@ const SliderWrapper = ({
   maxScrollLeft,
   setMaxScrollLeft,
 }) => {
+  const [scrollLeft, setScrollLeft] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const dragStartX = useRef(0);
+
+  // update max scroll whenever layout changes
   useEffect(() => {
     const imageList = imageListRef.current;
+    if (!imageList) return;
+
+    const update = () => {
+      setMaxScrollLeft(imageList.scrollWidth - imageList.clientWidth);
+      setScrollLeft(imageList.scrollLeft);
+    };
+
+    update();
+
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, [imageListRef, setMaxScrollLeft]);
+
+  // sync thumb position when scrollLeft changes
+  useEffect(() => {
     const sliderScrollbar = sliderScrollbarRef.current;
     const scrollbarThumb = scrollbarThumbRef.current;
+    if (!sliderScrollbar || !scrollbarThumb) return;
 
-    if (!imageList || !sliderScrollbar || !scrollbarThumb) return;
+    const maxThumbLeft =
+      sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth;
 
-    // Set max scroll on mount + whenever layout changes
-    const updateMaxScroll = () => {
-      setMaxScrollLeft(imageList.scrollWidth - imageList.clientWidth);
-    };
-    updateMaxScroll();
+    const newLeft =
+      maxScrollLeft > 0 ? (scrollLeft / maxScrollLeft) * maxThumbLeft : 0;
+    scrollbarThumb.style.left = `${newLeft}px`;
+  }, [scrollLeft, maxScrollLeft]);
 
-    const onResize = () => updateMaxScroll();
-    window.addEventListener("resize", onResize);
+  const handleScroll = () => {
+    const imageList = imageListRef.current;
+    if (!imageList) return;
+    setScrollLeft(imageList.scrollLeft);
+  };
 
-    // Drag logic
-    const handleMouseMove = (e, startX, startThumbLeft, maxThumbLeft) => {
-      const deltaX = e.clientX - startX;
-      const nextThumbLeft = Math.max(
+  const handleSlide = (dir) => {
+    const imageList = imageListRef.current;
+    if (!imageList) return;
+
+    imageList.scrollBy({
+      left: imageList.clientWidth * dir,
+      behavior: "smooth",
+    });
+
+    setTimeout(() => {
+      setScrollLeft(imageList.scrollLeft);
+    }, 100);
+  };
+
+  const atStart = scrollLeft <= 0;
+  const atEnd = scrollLeft >= maxScrollLeft - 1;
+
+  // 💥 drag start
+  const handleThumbMouseDown = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+    dragStartX.current = e.clientX;
+    document.body.style.userSelect = "none"; // prevent text selection
+  };
+
+  // 💥 drag move & drag end
+  useEffect(() => {
+    let animationFrame = null;
+    let targetThumbLeft = null;
+
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+
+      const imageList = imageListRef.current;
+      const sliderScrollbar = sliderScrollbarRef.current;
+      const scrollbarThumb = scrollbarThumbRef.current;
+      if (!imageList || !sliderScrollbar || !scrollbarThumb) return;
+
+      const maxThumbLeft =
+        sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth;
+
+      const deltaX = e.clientX - dragStartX.current;
+      dragStartX.current = e.clientX;
+
+      const currentLeft = parseFloat(scrollbarThumb.style.left || 0);
+      targetThumbLeft = Math.max(
         0,
-        Math.min(maxThumbLeft, startThumbLeft + deltaX),
+        Math.min(currentLeft + deltaX, maxThumbLeft),
       );
 
-      const nextScrollLeft =
-        maxThumbLeft === 0 ? 0 : (nextThumbLeft / maxThumbLeft) * maxScrollLeft;
+      // Smoothly animate toward the target
+      const animateThumb = () => {
+        if (targetThumbLeft === null) return;
 
-      scrollbarThumb.style.left = `${nextThumbLeft}px`;
-      imageList.scrollLeft = nextScrollLeft;
+        const currentPos = parseFloat(scrollbarThumb.style.left || 0);
+        const diff = targetThumbLeft - currentPos;
+
+        // Ease factor (0.2 = smooth, 0.5 = medium, 1 = direct)
+        const ease = 0.25;
+        const nextPos = currentPos + diff * ease;
+
+        scrollbarThumb.style.left = `${nextPos}px`;
+
+        // Sync content scroll
+        const scrollRatio = nextPos / maxThumbLeft;
+        imageList.scrollLeft = scrollRatio * maxScrollLeft;
+
+        if (Math.abs(diff) > 0.5) {
+          animationFrame = requestAnimationFrame(animateThumb);
+        } else {
+          scrollbarThumb.style.left = `${targetThumbLeft}px`;
+          targetThumbLeft = null;
+        }
+      };
+
+      if (!animationFrame) {
+        animateThumb();
+      }
     };
 
     const handleMouseUp = () => {
-      document.onmousemove = null;
-      document.onmouseup = null;
+      if (isDragging) {
+        setIsDragging(false);
+        document.body.style.userSelect = "auto";
+      }
     };
 
-    const handleThumbMouseDown = (e) => {
-      const startX = e.clientX;
-      const startThumbLeft = scrollbarThumb.offsetLeft;
-      const maxThumbLeft =
-        sliderScrollbar.getBoundingClientRect().width -
-        scrollbarThumb.offsetWidth;
-
-      document.onmousemove = (moveEvent) =>
-        handleMouseMove(moveEvent, startX, startThumbLeft, maxThumbLeft);
-      document.onmouseup = handleMouseUp;
-    };
-
-    scrollbarThumb.addEventListener("mousedown", handleThumbMouseDown);
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
-      window.removeEventListener("resize", onResize);
-      scrollbarThumb.removeEventListener("mousedown", handleThumbMouseDown);
-      handleMouseUp();
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      if (animationFrame) cancelAnimationFrame(animationFrame);
     };
   }, [
+    isDragging,
     imageListRef,
     sliderScrollbarRef,
     scrollbarThumbRef,
     maxScrollLeft,
-    setMaxScrollLeft,
   ]);
 
-  const handleSlide = (direction) => {
-    const imageList = imageListRef.current;
-    if (!imageList) return;
-
-    const scrollAmount = imageList.clientWidth * direction;
-    imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  };
-
-  const handleScroll = () => {
-    const imageList = imageListRef.current;
-    const sliderScrollbar = sliderScrollbarRef.current;
-    const scrollbarThumb = scrollbarThumbRef.current;
-
-    if (!imageList || !sliderScrollbar || !scrollbarThumb || maxScrollLeft <= 0)
-      return;
-
-    const maxThumbLeft =
-      sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth;
-    const thumbLeft = (imageList.scrollLeft / maxScrollLeft) * maxThumbLeft;
-
-    scrollbarThumb.style.left = `${thumbLeft}px`;
-  };
-
-  const atStart = (imageListRef.current?.scrollLeft ?? 0) <= 0;
-  const atEnd = (imageListRef.current?.scrollLeft ?? 0) >= maxScrollLeft;
-
   return (
-    <div className="slider-wrapper">
-      <button
-        id="prev-slide"
-        className="slide-button material-symbols-rounded"
-        onClick={() => handleSlide(-1)}
-        style={{ display: atStart ? "none" : "flex" }}
-      >
-        chevron_left
-      </button>
+    <>
+      <div className="slider-wrapper">
+        <button
+          id="prev-slide"
+          className="slide-button material-symbols-rounded"
+          onClick={() => handleSlide(-1)}
+          style={{ display: atStart ? "none" : "flex" }}
+        >
+          chevron_left
+        </button>
 
-      <ImageList ref={imageListRef} onScroll={handleScroll} />
+        <ImageList ref={imageListRef} onScroll={handleScroll} />
 
-      <button
-        id="next-slide"
-        className="slide-button material-symbols-rounded"
-        onClick={() => handleSlide(1)}
-        style={{ display: atEnd ? "none" : "flex" }}
-      >
-        chevron_right
-      </button>
-    </div>
-  );
-};
-
-const ImageList = React.forwardRef(({ onScroll }, ref) => {
-  return (
-    <ul className="image-list" ref={ref} onScroll={onScroll}>
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-2.webp"
-        alt="img-2"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-3.webp"
-        alt="img-3"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-4.webp"
-        alt="img-4"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-5.webp"
-        alt="img-5"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-6.webp"
-        alt="img-6"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-7.webp"
-        alt="img-7"
-      />
-      <img
-        className="image-item"
-        src="images/gallery/portrait-photos/michael-1.webp"
-        alt="img-1"
-      />
-    </ul>
-  );
-});
-
-const SliderScrollbar = ({ sliderScrollbarRef, scrollbarThumbRef }) => {
-  return (
-    <div className="slider-scrollbar" ref={sliderScrollbarRef}>
-      <div className="scrollbar-track">
-        <div className="scrollbar-thumb" ref={scrollbarThumbRef}></div>
+        <button
+          id="next-slide"
+          className="slide-button material-symbols-rounded"
+          onClick={() => handleSlide(1)}
+          style={{ display: atEnd ? "none" : "flex" }}
+        >
+          chevron_right
+        </button>
       </div>
-    </div>
+
+      <SliderScrollbar
+        sliderScrollbarRef={sliderScrollbarRef}
+        scrollbarThumbRef={scrollbarThumbRef}
+        onThumbMouseDown={handleThumbMouseDown}
+      />
+    </>
   );
 };
+
+const ImageList = React.forwardRef(({ onScroll }, ref) => (
+  <ul className="image-list" ref={ref} onScroll={onScroll}>
+    {[2, 3, 4, 5, 6, 7, 1].map((num) => (
+      <img
+        key={num}
+        className="image-item"
+        src={`images/gallery/portrait-photos/michael-${num}.webp`}
+        alt={`img-${num}`}
+      />
+    ))}
+  </ul>
+));
+
+const SliderScrollbar = ({
+  sliderScrollbarRef,
+  scrollbarThumbRef,
+  onThumbMouseDown,
+}) => (
+  <div className="slider-scrollbar" ref={sliderScrollbarRef}>
+    <div className="scrollbar-track">
+      <div
+        className="scrollbar-thumb"
+        ref={scrollbarThumbRef}
+        onMouseDown={onThumbMouseDown}
+      ></div>
+    </div>
+  </div>
+);
