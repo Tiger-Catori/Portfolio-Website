@@ -43,7 +43,7 @@ const FooterLinks = () => {
           <a href="#">Home</a>
         </li>
         <li>
-          <a href="#hero">About me</a>
+          <a href="#gallery">Gallery</a>
         </li>
         <li>
           <a href="#projects">Projects</a>

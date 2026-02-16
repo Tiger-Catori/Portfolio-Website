@@ -39,7 +39,7 @@ const Form = () => {
     emailjs
       .sendForm(
         "service_saxrs49", // ← replace
-        "template_8arc4fe", // ← replace
+        "template_dliztfs", // ← replace
         formRef.current,
         "HJGGHxDB7ombFB3zD", // ← replace
       )
