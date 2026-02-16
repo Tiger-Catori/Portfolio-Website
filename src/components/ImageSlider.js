@@ -15,7 +15,7 @@ const ImageSlider = () => {
   const [maxScrollLeft, setMaxScrollLeft] = useState(0);
 
   return (
-    <section className="section section__slider">
+    <section className="section section__slider" id="gallery">
       <div className="slider__container">
         <h2 className="section__title section__title--gallery">Gallery</h2>
         <p className="section__subtitle section__subtitle--gallery">
@@ -223,7 +223,7 @@ const ImageList = React.forwardRef(({ onScroll }, ref) => (
       <img
         key={num}
         className="image-item"
-        src={`images/gallery/portrait-photos/michael-${num}.webp`}
+        src={`images/gallery/portrait-photos//michael-${num}.webp`}
         alt={`img-${num}`}
       />
     ))}

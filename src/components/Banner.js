@@ -13,6 +13,7 @@ const Banner = () => {
     { id: 4, img: "mongodb-logo.webp", alt: "MongoDB" },
     { id: 5, img: "js-logo.webp", alt: "Javascript" },
     { id: 6, img: "python-logo.webp", alt: "Python" },
+    { id: 7, img: "docker-logo.webp", alt: "Docker" },
   ];
 
   return (

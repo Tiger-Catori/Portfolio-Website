@@ -28,11 +28,11 @@ const Intro = () => {
       <h2>Terms and Conditions</h2>
       <p>
         These terms and conditions outline the rules and regulations for the use
-        of Help4Landlords.
+        of MichaelAdeleye.
       </p>
       <p>
         By accessing this website we assume you accept these terms and
-        conditions. Do not continue to use help4landlords.org if you do not
+        conditions. Do not continue to use michaeladeleye.net if you do not
         agree to take all of the terms and conditions stated on this page.
       </p>
     </>
@@ -76,8 +76,8 @@ const CookiesSection = () => {
     <div>
       <h4>Cookies</h4>
       <p>
-        We employ the use of cookies. By accessing help4landlords.org, you
-        agreed to use cookies in agreement with the Help4Landlords Privacy
+        We employ the use of cookies. By accessing michaeladeleye.net, you
+        agreed to use cookies in agreement with the MichaelAdeleye Privacy
         Policy.
       </p>
       <p>
@@ -96,34 +96,34 @@ const LicenseSection = () => {
     <div>
       <h4>License</h4>
       <p>
-        Unless otherwise stated, Help4Landlords and/or its licensors own the
-        intellectual property rights for all material on help4landlords.org. All
+        Unless otherwise stated, MichaelAdeleye and/or its licensors own the
+        intellectual property rights for all material on michaeladeleye.net. All
         intellectual property rights are reserved. You may access this from
-        help4landlords.org for your own personal use subjected to restrictions
+        michaeladeleye.net for your own personal use subjected to restrictions
         set in these terms and conditions.
       </p>
       <p>You must not:</p>
       <ul>
-        <li>Republish material from help4landlords.org</li>
-        <li>Sell, rent or sub-license material from help4landlords.org</li>
-        <li>Reproduce, duplicate or copy material from help4landlords.org</li>
-        <li>Redistribute content from help4landlords.org</li>
+        <li>Republish material from michaeladeleye.net</li>
+        <li>Sell, rent or sub-license material from michaeladeleye.net</li>
+        <li>Reproduce, duplicate or copy material from michaeladeleye.net</li>
+        <li>Redistribute content from michaeladeleye.net</li>
       </ul>
       <p>This Agreement shall begin on the date hereof.</p>
       <p>
         Parts of this website offer an opportunity for users to post and
         exchange opinions and information in certain areas of the website.
-        Help4Landlords does not filter, edit, publish or review Comments prior
+        MichaelAdeleye does not filter, edit, publish or review Comments prior
         to their presence on the website. Comments do not reflect the views and
-        opinions of Help4Landlords, its agents and/or affiliates. Comments
+        opinions of MichaelAdeleye, its agents and/or affiliates. Comments
         reflect the views and opinions of the person who post their views and
-        opinions. To the extent permitted by applicable laws, Help4Landlords
+        opinions. To the extent permitted by applicable laws, MichaelAdeleye
         shall not be liable for the Comments or for any liability, damages or
         expenses caused and/or suffered as a result of any use of and/or posting
         of and/or appearance of the Comments on this website.
       </p>
       <p>
-        Help4Landlords reserves the right to monitor all Comments and to remove
+        MichaelAdeleye reserves the right to monitor all Comments and to remove
         any Comments which can be considered inappropriate, offensive or causes
         breach of these Terms and Conditions.
       </p>
@@ -148,7 +148,7 @@ const LicenseSection = () => {
         </li>
       </ul>
       <p>
-        You hereby grant Help4Landlords a non-exclusive license to use,
+        You hereby grant MichaelAdeleye a non-exclusive license to use,
         reproduce, edit and authorise others to use, reproduce and edit any of
         your Comments in any and all forms, formats or media.
       </p>
@@ -213,7 +213,7 @@ const LinkingPolicySection = () => {
         </li>
         <li>
           (c) the benefit to us from the visibility of the hyperlink compensates
-          the absence of Help4Landlords; and
+          the absence of MichaelAdeleye; and
         </li>
         <li>(d) the link is in the context of general resource information.</li>
       </ul>
@@ -229,7 +229,7 @@ const LinkingPolicySection = () => {
       <p>
         If you are one of the organisations listed in paragraph 2 above and are
         interested in linking to our website, you must inform us by sending an
-        e-mail to Help4Landlords. Please include your name, your organisation
+        e-mail to MichaelAdeleye. Please include your name, your organisation
         name, contact information as well as the URL of your site, a list of any
         URLs from which you intend to link to our Website, and a list of the
         URLs on our site to which you would like to link. Wait 2-3 weeks for a
@@ -246,7 +246,7 @@ const LinkingPolicySection = () => {
         </li>
       </ul>
       <p>
-        No use of Help4Landlords’s logo or other artwork will be allowed for
+        No use of MichaelAdeleye’s logo or other artwork will be allowed for
         linking absent a trademark license agreement.
       </p>
     </div>

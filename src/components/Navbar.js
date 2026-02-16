@@ -121,9 +121,9 @@ const NavLinks = ({ isOpen }) => {
         as={Link}
         className="nav__link"
         to="/"
-        onClick={() => handleClick("about")}
+        onClick={() => handleClick("gallery")}
       >
-        <span>About</span>
+        <span>Gallery</span>
       </Nav.Link>
       <Nav.Link
         as={Link}
