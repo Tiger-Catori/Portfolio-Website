@@ -186,7 +186,12 @@ const SliderWrapper = ({
 
   return (
     <>
-      <div className="slider-wrapper">
+      <div
+        className="slider-wrapper"
+        data-aos-delay="100"
+        data-aos="fade-right"
+        data-aos-duration="1500"
+      >
         <button
           id="prev-slide"
           className="slide-button material-symbols-rounded"

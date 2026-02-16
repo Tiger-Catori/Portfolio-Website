@@ -15,7 +15,12 @@ const Hero = () => {
 
 const HeroText = () => {
   return (
-    <div className="hero__text">
+    <div
+      className="hero__text"
+      data-aos-delay="100"
+      data-aos="fade-right"
+      data-aos-duration="1500"
+    >
       <h2 className="heading hero_head">
         Welcome to <span>Michael Adeleye's</span> Website
       </h2>
@@ -33,7 +38,12 @@ const HeroText = () => {
 
 const HeroImage = () => {
   return (
-    <div className="hero__image">
+    <div
+      className="hero__image"
+      data-aos-delay="100"
+      data-aos="flip-left"
+      data-aos-duration="1500"
+    >
       <div className="container__img michael__img">
         <img
           className="hero__img"
