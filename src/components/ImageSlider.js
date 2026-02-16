@@ -189,7 +189,7 @@ const SliderWrapper = ({
       <div
         className="slider-wrapper"
         data-aos-delay="100"
-        data-aos="fade-right"
+        data-aos="fade-up"
         data-aos-duration="1500"
       >
         <button
@@ -228,7 +228,7 @@ const ImageList = React.forwardRef(({ onScroll }, ref) => (
       <img
         key={num}
         className="image-item"
-        src={`images/gallery/portrait-photos//michael-${num}.webp`}
+        src={`images/gallery/portrait-photos/cropped/michael-${num}.webp`}
         alt={`img-${num}`}
       />
     ))}

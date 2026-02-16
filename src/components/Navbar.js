@@ -133,14 +133,14 @@ const NavLinks = ({ isOpen }) => {
       >
         <span>Projects</span>
       </Nav.Link>
-      {/* <Nav.Link
+      <Nav.Link
         as={Link}
         className="nav__link"
         to="/"
         onClick={() => handleClick("form-section")}
       >
-        <span>Contact us</span>
-      </Nav.Link>*/}
+        <span>Form</span>
+      </Nav.Link>
     </Nav>
   );
 };

@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Nav } from "react-bootstrap";
 import "../css/Footer.css";
 
 const FooterComponent = () => {
@@ -22,93 +24,116 @@ const Footer = () => {
   );
 };
 
-// const FooterLogo = () => {
-//   return (
-//     <div className="footer-col logo-footer">
-//       <img src="/images/logo/logo.png" alt="Fasco Logo" />
-//       <p>
-//         Lorem ipsum dolor sit amet consectetur. Leo lectus posuere tellus auctor
-//         non ac in. Tristique feugiat senectus ultrices m
-//       </p>
-//     </div>
-//   );
-// };
-
 const FooterLinks = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleScrollTo = (hash, e) => {
+    e.preventDefault();
+
+    if (location.pathname !== "/") {
+      navigate(`/#${hash}`);
+    }
+
+    setTimeout(() => {
+      const el = document.getElementById(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 50);
+  };
+
+  const links = [
+    { name: "Home", hash: "home" },
+    { name: "Gallery", hash: "gallery" },
+    { name: "Projects", hash: "projects" },
+    { name: "Contact us", hash: "form-section" },
+  ];
+
   return (
-    <div className="footer-col col-one">
+    <div
+      className="footer-col col-one"
+      data-aos-delay="100"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+    >
       <h4>Sitemap</h4>
       <ul className="footer-links site-map">
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#gallery">Gallery</a>
-        </li>
-        <li>
-          <a href="#projects">Projects</a>
-        </li>
-        <li>
-          <a href="mailto:michaeladeleye365@gmail.com" class="footer-link">
-            Contact me
-          </a>
-        </li>
-
-        {/* <li><a href="#download">Download App</a></li> */}
+        {links.map((link) => (
+          <li key={link.name}>
+            {link.email ? (
+              <Nav.Link
+                href={`mailto:${link.email}`}
+                className="footer-nav-link"
+              >
+                {link.name}
+              </Nav.Link>
+            ) : (
+              <Nav.Link
+                href={`#${link.hash}`}
+                onClick={(e) => handleScrollTo(link.hash, e)}
+                className="footer-nav-link"
+              >
+                {link.name}
+              </Nav.Link>
+            )}
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
 
 const FooterSocialLinks = () => {
+  const socialLinks = [
+    {
+      name: "Facebook",
+      icon: "logo-facebook",
+      url: "https://www.facebook.com",
+    },
+    {
+      name: "Instagram",
+      icon: "logo-instagram",
+      url: "https://www.instagram.com",
+    },
+    {
+      name: "Twitter (X)",
+      icon: "logo-twitter",
+      url: "https://www.twitter.com",
+    },
+    {
+      name: "Telegram",
+      icon: "navigate-circle-outline",
+      url: "https://web.telegram.org/a/",
+    },
+  ];
+
   return (
-    <div className="footer-col col-two">
+    <div
+      className="footer-col col-two"
+      data-aos-delay="100"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+    >
       <h4>Follow me</h4>
       <ul className="footer-links social-links">
-        <li>
-          <a target="_blank" rel="noreferrer" href="https://www.facebook.com">
-            <ion-icon name="logo-facebook"></ion-icon>Facebook
-          </a>
-        </li>
-        <li>
-          <a target="_blank" rel="noreferrer" href="https://www.instagram.com">
-            <ion-icon name="logo-instagram"></ion-icon>Instagram
-          </a>
-        </li>
-        <li>
-          <a target="_blank" rel="noreferrer" href="https://www.twitter.com">
-            <ion-icon name="logo-twitter"></ion-icon>Twitter
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://web.telegram.org/a/"
-          >
-            <ion-icon name="navigate-circle-outline"></ion-icon>Telegram
-          </a>
-        </li>
+        {socialLinks.map((link) => (
+          <li key={link.name}>
+            <a
+              className="footer-social-link"
+              target="_blank"
+              rel="noreferrer"
+              href={link.url}
+            >
+              <ion-icon name={link.icon}></ion-icon>
+              <span>{link.name}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   );
 };
-
-// const FooterAppLinks = () => {
-//   return (
-//     <div className="footer-col col-three">
-//       <h4>DOWNLOAD THE APP</h4>
-//       <div className="app-buttons">
-//         <a href="#google-play">
-//           <img src="/images/general/googleplay.webp" alt="Google Play" />
-//         </a>
-//         <a href="#app-store">
-//           <img src="/images/general/appstore.webp" alt="App Store" />
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
 
 const FooterBottom = () => {
   useEffect(() => {
