@@ -87,6 +87,24 @@
     /* gap: 2.8rem; */
 }
 
+/* Footer bottom */
+.footer__bottom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    height: 1px;
+    background: #999;
+}
+
+.footer__bottom {
+    position: relative;
+    border-top: none;
+    padding-top: 3.2rem;
+}
+
 .footer__bottom {
     display: flex;
     flex-direction: row;
@@ -95,7 +113,7 @@
     flex-wrap: wrap;
     gap: 8.6rem;
     color: var(--clr-headings2);
-    border-top: 1px solid #999;
+    /*border-top: 2px solid #999;*/
     padding-top: 3.2rem;
     z-index: 1;
     font-size: var(--fs-body);

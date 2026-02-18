@@ -1,0 +1,82 @@
+/* shared */
+.cursor-dot,
+.cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    will-change: transform;
+    z-index: 9999;
+}
+
+/* small central dot */
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background: #00ffff;
+    border-radius: 50%;
+    animation: dotPulse 1.5s ease-in-out infinite;
+}
+
+/* outer circle */
+.cursor-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00ffff;
+    border-radius: 50%;
+    animation: circlePulse 1.5s ease-in-out infinite;
+}
+
+/* glow effect */
+.cursor-circle::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow:
+        0 0 6px #00ffff,
+        0 0 20px #00ffff80,
+        0 0 40px #00ffff40;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+/* keyframes */
+
+@keyframes dotPulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translate(-50%, -50%) scale(1.4);
+    }
+}
+
+@keyframes circlePulse {
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.25);
+    }
+}
+
+@keyframes glowPulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}

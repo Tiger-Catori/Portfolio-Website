@@ -27,8 +27,10 @@
 
     /* 🎨 Color Palette (5 Accents) */
     --clr-accent1: #2563eb;
+    /*--clr-accent1: #6a5acd;*/
     --clr-accent2: #1f2933;
     --clr-accent3: #497dee;
+    /*--clr-accent3: #7b68ee;*/
     --clr-accent4: #f9fafb;
     --clr-accent5: #374151;
     --clr-accent6: #c7d7fa;
@@ -164,4 +166,15 @@ a {
 
 a:hover {
     color: var(--clr-accent3);
+}
+
+/* Make the cursor canvas a fixed overlay that never affects layout */
+#canvas {
+    position: fixed; /* remove from normal layout */
+    top: 0; /* attach to viewport top */
+    left: 0; /* attach to viewport left */
+    width: 100vw; /* full viewport width */
+    height: 100vh; /* full viewport height */
+    pointer-events: none; /* allows clicks/scrolling through it */
+    z-index: 9999; /* always on top of other elements */
 }

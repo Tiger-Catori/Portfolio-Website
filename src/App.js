@@ -1,12 +1,15 @@
-// App.js
 import { Routes, Route } from "react-router-dom";
-
 import "./css/App.css";
+
 import NavbarComponent from "./components/Navbar";
+import CanvasCursor from "./components/CanvasCursor/CanvasCursor";
+// import NeonCursor from "./components/CanvasCursor/NeonCursor";
+
 import Home from "./pages/Home";
-import ErrorPage from "./pages/ErrorPage"; // import error page
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage"; // import privacy policy page
-import TermsAndConditionsPage from "./pages/TermsAndConditionsPage"; // import terms and conditions page
+import ErrorPage from "./pages/ErrorPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsAndConditionsPage from "./pages/TermsAndConditionsPage";
+
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
@@ -23,6 +26,8 @@ function App() {
 
   return (
     <div className="container__body" id="home">
+      <CanvasCursor />
+      {/* <NeonCursor />*/}
       <NavbarComponent />
       <main className="main__content">
         <Routes>
@@ -33,7 +38,6 @@ function App() {
             element={<TermsAndConditionsPage />}
           />
           <Route path="/*" element={<ErrorPage />} />
-          {/* Add more routes here if needed */}
         </Routes>
       </main>
     </div>

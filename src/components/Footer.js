@@ -47,7 +47,7 @@ const FooterLinks = () => {
     { name: "Home", hash: "home" },
     { name: "Gallery", hash: "gallery" },
     { name: "Projects", hash: "projects" },
-    { name: "Contact us", hash: "form-section" },
+    { name: "Form", hash: "form-section" },
   ];
 
   return (
